@@ -1,4 +1,7 @@
-# amqp-client.js
+# amqp-client.js FORK
+
+AVA is a test runner for Node
+c8 - native V8 code-coverage
 
 AMQP 0-9-1 TypeScript client both for Node.js and browsers (using WebSocket). This library is intended to replace all other Node.js AMQP libraries.
 

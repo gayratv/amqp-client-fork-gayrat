@@ -4,16 +4,19 @@
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "rootDir": "./src",
-    "outDir": "./build",
+    "outFile": "./dist-es/index.d.ts",
     "resolveJsonModule": true,
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "noImplicitAny": true,
     "skipLibCheck": true,
-    "isolatedModules": true, // для esbuild
+    "isolatedModules": false,
     "esModuleInterop": true , // Emit additional JavaScript to ease support for importing CommonJS modules. This enables `allowSyntheticDefaultImports` for type compatibility.
-    "baseUrl": "src"
+    "declaration": true,
+
+    "emitDeclarationOnly": true,
+    "baseUrl": "src",
   },
   "include": ["src/**/*"],
   "exclude": [

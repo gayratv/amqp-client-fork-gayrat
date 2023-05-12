@@ -1,42 +1,21 @@
 {
-  "name": "@cloudamqp/amqp-client",
+  "name": "amqp-client-fork-gayrat",
   "version": "2.1.1",
   "description": "AMQP 0-9-1 client, both for browsers (WebSocket) and node (TCP Socket)",
   "type": "module",
-  "main": "lib/cjs/index.js",
-  "types": "types/index.d.ts",
-  "browser": {
-    "AMQPClient": false,
-    "buffer": false,
-    "net": false,
-    "tls": false
-  },
-  "exports": {
-    "types": "./types/index.d.ts",
-    "import": "./lib/mjs/index.js",
-    "require": "./lib/cjs/index.js"
-  },
+  "main": "./dist-es/index.mjs",
+  "types": "./dist-es/index.d.ts",
   "engines": {
-    "node": ">=12.0.0"
+    "node": ">=18.0.0"
   },
   "scripts": {
-    "docs": "typedoc src/index.ts",
-    "lint": "eslint src",
-    "test": "c8 ava",
-    "prebuild": "rm -rf dist lib types",
-    "build": "tsc && tsc --module commonjs --outDir lib/cjs && tsc --emitDeclarationOnly --removeComments false && rollup -c",
-    "postbuild": "echo '{\"type\": \"commonjs\"}' > lib/cjs/package.json",
-    "prepare": "npm run build",
-    "preversion": "npm test",
-    "version": "sed -i'' \"s/VERSION = .*/VERSION = '$npm_package_version'/\" src/amqp-base-client.ts && git add src/amqp-base-client.ts"
+    "build-server": "rimraf dist-es && rimraf tsconfig.tsbuildinfo && node ./scripts/esbuild.js ",
+    "build-declaration": "tsc -p ./tsconfig.declaration.json",
+    "pub": "npm publish --public"
   },
   "files": [
-    "src/",
-    "lib/",
-    "types/",
-    "dist/"
+    "dist-es"
   ],
-  "repository": "github:cloudamqp/amqp-client.js",
   "keywords": [
     "amqp",
     "rabbitmq",
@@ -44,32 +23,14 @@
   ],
   "author": "CloudAMQP <contact@cloudamqp.com>",
   "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/cloudamqp/amqp-client.js/issues"
-  },
-  "homepage": "https://github.com/cloudamqp/amqp-client.js#readme",
   "devDependencies": {
-    "@types/node": "^17.0.1",
-    "@typescript-eslint/eslint-plugin": "^5.8.0",
-    "@typescript-eslint/parser": "^5.8.0",
-    "ava": "^3.15.0",
-    "c8": "^7.10.0",
-    "eslint": "^8.5.0",
-    "rollup": "^2.39.1",
-    "rollup-plugin-sourcemaps": "^0.6.3",
-    "ts-node": "^10.4.0",
-    "typedoc": "^0.22.10",
-    "typescript": "^4.5.4"
-  },
-  "ava": {
-    "extensions": {
-      "ts": "module"
-    },
-    "nonSemVerExperiments": {
-      "configurableModuleFormat": true
-    },
-    "nodeArguments": [
-      "--loader=ts-node/esm"
-    ]
+    "@types/node": "^18.16.8",
+    "@typescript-eslint/eslint-plugin": "^5.59.5",
+    "@typescript-eslint/parser": "^5.59.5",
+    "esbuild": "^0.17.18",
+    "eslint": "^8.40.0",
+    "rimraf": "^5.0.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.5"
   }
 }
