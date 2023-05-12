@@ -5,6 +5,7 @@ import { AMQPConsumer } from './amqp-consumer.js'
 import { AMQPMessage } from './amqp-message.js'
 import { AMQPBaseClient } from './amqp-base-client.js'
 import { AMQPProperties } from './amqp-properties.js'
+import * as process from "process";
 
 /**
  * Represents an AMQP Channel. Almost all actions in AMQP are performed on a Channel.
@@ -778,6 +779,10 @@ export class AMQPChannel {
       this.unconfirmedPublishes.length = 0
       if (closedByServer) this.onerror(err.message)
     }
+
+    setTimeout(()=>{
+      console.error('Соединение закрыто, аварийное завершение с кодом 16');
+      process.exit(16)},3_000)
   }
 
   /**

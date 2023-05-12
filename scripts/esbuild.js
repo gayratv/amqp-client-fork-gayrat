@@ -13,7 +13,7 @@ const sharedConfig = {
 console.log(sharedConfig);
 
 build({
-  entryPoints: ['./src/index.ts'],
+  entryPoints: ['./src/amqp-client-fork-gayrat.ts'],
   // outdir: 'esbuild',
   outfile: './dist-es/index.mjs',
   format: 'esm',

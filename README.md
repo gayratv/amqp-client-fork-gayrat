@@ -1,4 +1,5 @@
 # amqp-client.js FORK
+Стартовая версия 2.1.1
 
 AVA is a test runner for Node
 c8 - native V8 code-coverage

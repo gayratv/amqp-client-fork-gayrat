@@ -612,6 +612,7 @@ var AMQPConsumer2 = class {
 };
 
 // src/amqp-channel.ts
+import * as process2 from "process";
 var AMQPChannel3 = class {
   connection;
   id;
@@ -1556,6 +1557,10 @@ var AMQPChannel3 = class {
       if (closedByServer)
         this.onerror(err.message);
     }
+    setTimeout(() => {
+      console.error("\u0421\u043E\u0435\u0434\u0438\u043D\u0435\u043D\u0438\u0435 \u0437\u0430\u043A\u0440\u044B\u0442\u043E, \u0430\u0432\u0430\u0440\u0438\u0439\u043D\u043E\u0435 \u0437\u0430\u0432\u0435\u0440\u0448\u0435\u043D\u0438\u0435 \u0441 \u043A\u043E\u0434\u043E\u043C 16");
+      process2.exit(16);
+    }, 3e3);
   }
   /**
    * @return Rejected promise with an error

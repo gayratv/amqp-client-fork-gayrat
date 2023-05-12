@@ -677,15 +677,6 @@ declare module "amqp-socket-client" {
         protected closeSocket(): void;
     }
 }
-declare module "amqp-client" {
-    export { AMQPClient } from "amqp-socket-client";
-    export { AMQPChannel } from "amqp-channel";
-    export { AMQPQueue } from "amqp-queue";
-    export { AMQPConsumer } from "amqp-consumer";
-    export { AMQPError } from "amqp-error";
-    export { AMQPMessage } from "amqp-message";
-    export { AMQPProperties, Field } from "amqp-properties";
-}
 declare module "amqp-websocket-client" {
     import { AMQPBaseClient } from "amqp-base-client";
     /**
@@ -715,7 +706,7 @@ declare module "amqp-websocket-client" {
         static platform(): string;
     }
 }
-declare module "index" {
+declare module "amqp-client-fork-gayrat" {
     export { AMQPClient } from "amqp-socket-client";
     export { AMQPWebSocketClient } from "amqp-websocket-client";
     export { AMQPChannel, QueueOk, MessageCount, QueueParams, ExchangeParams, ConsumeParams } from "amqp-channel";
@@ -725,4 +716,13 @@ declare module "index" {
     export { AMQPMessage } from "amqp-message";
     export { AMQPProperties, Field } from "amqp-properties";
     export { AMQPTlsOptions } from "amqp-tls-options";
+}
+declare module "amqp-client" {
+    export { AMQPClient } from "amqp-socket-client";
+    export { AMQPChannel } from "amqp-channel";
+    export { AMQPQueue } from "amqp-queue";
+    export { AMQPConsumer } from "amqp-consumer";
+    export { AMQPError } from "amqp-error";
+    export { AMQPMessage } from "amqp-message";
+    export { AMQPProperties, Field } from "amqp-properties";
 }
