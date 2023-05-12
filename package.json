@@ -1,9 +1,10 @@
 {
   "name": "amqp-client-fork-gayrat",
-  "version": "2.1.4",
+  "version": "2.1.6",
   "description": "AMQP 0-9-1 client, both for browsers (WebSocket) and node (TCP Socket)",
   "type": "module",
   "module": "./dist-es/index.mjs",
+  "main": "./dist-es/index.mjs",
   "types": "./dist-es/index.d.ts",
   "engines": {
     "node": ">=18.0.0"
